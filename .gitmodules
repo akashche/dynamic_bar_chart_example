@@ -1,0 +1,6 @@
+[submodule "public_html/lib/dojo"]
+	path = public_html/lib/dojo
+	url = https://github.com/dojo/dojo.git
+[submodule "public_html/lib/dojox"]
+	path = public_html/lib/dojox
+	url = https://github.com/dojo/dojox.git
