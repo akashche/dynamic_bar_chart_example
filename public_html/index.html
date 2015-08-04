@@ -1,19 +1,104 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Dynamic Bar Chart</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="lib/dojo/dojo.js" data-dojo-config="isDebug: 1, async: 1, parseOnLoad: 0"></script>
-        <script>
-            require(["com/redhat/akashche/BarChartPanel"], 
-                function(BarChartPanel) {
-                    new BarChartPanel({renderTo: "chartDiv"});
-                }
-            );
-        </script>
-    </head>
-    <body>
-        <div id="chartDiv" style="width:640px; height: 480px;"></div>
-    </body>
+<!-- 
+# Copyright 2015, akashche at redhat.com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HTTP Access to JVM TI Example</title>
+    
+    <!-- Bootstap -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
+    <script src="bootstrap/jquery-1.11.3.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <link href="bootstrap/jumbotron.css" rel="stylesheet">
+    <!-- Code -->
+    <script src="lib/dojo/dojo.js" data-dojo-config="isDebug: 0, async: 1, parseOnLoad: 0"></script>
+    <script>
+    require(["com/redhat/akashche/BarChartPanel"], 
+        function(BarChartPanel) {
+            new BarChartPanel({renderTo: "chartDiv"});
+        }
+    );
+    </script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img class="navbar-brand" src="Red_hat_logo.png" alt="Logo">
+          <a class="navbar-brand" href="https://github.com/akashche/jvmti_http">HTTP Access to JVM TI Example - Number of Live JVM Threads</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+          <div id="chartDiv" style="hight:100%;width:100%;"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>JVM Details</h2>
+          <p>java.home: <span id="javaHomeField"></span></p>
+          <p>java.vm.name: <span id="javaVmNameField"></span></p>
+          <p>java.vm.version: <span id="javaVmVersionField"></span></p>
+          <p>java.vm.vendor: <span id="javaVmVendorField"></span></p>
+          <p><a class="btn btn-default" href="https://github.com/akashche/jvmti_http/blob/master/src/handlers/GetSystemProperty.cpp" role="button">Access Details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>About JVM TI</h2>
+          <p>Native low-level JVM interface</p>
+          <p>Agent library is loaded on JVM startup, allows to inspect JVM state and control execution</p>
+          <p>Designed for profiling, debugging, monitoring, thread analysis, and coverage analysis tools</p>
+          <p><a class="btn btn-default" href="http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html" role="button">JVM TI Docs &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>About HTTP Server</h2>
+          <p>HTTP Server embedded into JVM TI agent library, web application served from a ZIP file</p>
+          <p>Asynchronous, supports streaming for requests and responses</p>
+          <p>Secure with OpenSSL, supports X.509 client auth</p>
+          <p><a class="btn btn-default" href="https://github.com/staticlibs/staticlib_httpserver" role="button">Project Link &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>akashche@redhat.com, 2015</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
 </html>
+
