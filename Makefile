@@ -23,3 +23,4 @@ bundle:
 	rm -rf build/lib/dojo/.git
 	rm -rf build/lib/dojox/.git
 	cd build && zip -qyr webapp.zip *
+	cp certificates/cert.pem build/
